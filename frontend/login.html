@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KCP-QA Login</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='login.css') }}">
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+    <h1 class="page-title">KCP-QA System</h1>
+
+    <div class="login-card">
+
+        <img src="{{ url_for('static', filename='logo.jpeg') }}"
+             style="width:80px; margin-bottom:20px;">
+
+        <h2>
+            Knowledge Content Processing <br>
+            Question Answering System
+        </h2>
+
+        <br><br>
+
+        <a href="/dashboard">
+            <button class="login-btn">
+                Enter System →
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

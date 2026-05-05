@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Extract Tables | KCP-QA</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+body {
+
+font-family: Arial;
+
+background: #f5f7fb;
+
+}
+
+.container {
+
+width: 85%;
+
+margin: 40px auto;
+
+background: white;
+
+padding: 30px;
+
+border-radius: 10px;
+
+box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+
+}
+
+h2 {
+
+text-align: center;
+
+color: #2a5db0;
+
+}
+
+table {
+
+width: 100%;
+
+border-collapse: collapse;
+
+margin-top: 20px;
+
+margin-bottom: 40px;
+
+}
+
+td, th {
+
+border: 1px solid #ccc;
+
+padding: 10px;
+
+text-align: center;
+
+}
+
+th {
+
+background: #2a5db0;
+
+color: white;
+
+}
+
+.no-table {
+
+text-align: center;
+
+color: red;
+
+font-size: 18px;
+
+}
+
+.back-btn {
+
+display: block;
+
+width: 200px;
+
+margin: 20px auto;
+
+text-align: center;
+
+background: #2a5db0;
+
+color: white;
+
+padding: 12px;
+
+border-radius: 6px;
+
+text-decoration: none;
+
+}
+
+.back-btn:hover {
+
+background: #1e4a94;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+<h2>Extracted Tables from PDF</h2>
+
+
+{% if tables %}
+
+
+{% for table in tables %}
+
+<table>
+
+{% for row in table %}
+
+<tr>
+
+{% for cell in row %}
+
+<td>
+
+{{ cell }}
+
+</td>
+
+{% endfor %}
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endfor %}
+
+
+{% else %}
+
+<p class="no-table">
+
+No tables found in uploaded document
+
+</p>
+
+{% endif %}
+
+
+<a href="/dashboard" class="back-btn">
+
+⬅ Back to Dashboard
+
+</a>
+
+
+</div>
+
+
+</body>
+
+</html>

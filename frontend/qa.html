@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Ask Question | KCP-QA</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+.qa-container {
+
+width: 60%;
+
+margin: 50px auto;
+
+background: white;
+
+padding: 30px;
+
+border-radius: 12px;
+
+box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+
+text-align: center;
+
+}
+
+input {
+
+width: 70%;
+
+padding: 12px;
+
+border: 1px solid #ccc;
+
+border-radius: 6px;
+
+font-size: 16px;
+
+}
+
+button {
+
+padding: 12px 25px;
+
+background: #2a5db0;
+
+color: white;
+
+border: none;
+
+border-radius: 6px;
+
+cursor: pointer;
+
+}
+
+button:hover {
+
+background: #1e4a94;
+
+}
+
+.answer-box {
+
+margin-top: 20px;
+
+font-size: 18px;
+
+color: #333;
+
+}
+
+</style>
+
+
+<script>
+
+async function askQuestion() {
+
+let question = document.getElementById("question").value;
+
+
+let response = await fetch("/ask",
+
+{
+
+method: "POST",
+
+headers:
+
+{
+
+"Content-Type": "application/json"
+
+},
+
+body: JSON.stringify(
+
+{
+
+question: question
+
+})
+
+});
+
+
+let data = await response.json();
+
+
+document.getElementById("answer").innerText =
+
+data.answer;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+
+<div class="navbar">
+
+<div class="logo">
+
+📘 KCP-QA
+
+</div>
+
+<div class="menu">
+
+<a href="/dashboard">Dashboard</a>
+
+<a href="/upload_page">Upload PDF</a>
+
+<a href="/summary_page">Summary</a>
+
+</div>
+
+</div>
+
+
+<div class="qa-container">
+
+<h2>Ask Question from Document</h2>
+
+<br>
+
+<input
+
+type="text"
+
+id="question"
+
+placeholder="Enter your question here">
+
+<br><br>
+
+<button
+
+onclick="askQuestion()">
+
+Ask Question
+
+</button>
+
+
+<div
+
+id="answer"
+
+class="answer-box">
+
+</div>
+
+
+<br><br>
+
+<a href="/dashboard">
+
+← Back to Dashboard
+
+</a>
+
+</div>
+
+
+</body>
+</html>

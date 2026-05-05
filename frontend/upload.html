@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Upload PDF | KCP-QA</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+.upload-box {
+
+width: 400px;
+
+margin: 80px auto;
+
+background: white;
+
+padding: 40px;
+
+border-radius: 12px;
+
+text-align: center;
+
+box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+
+}
+
+button {
+
+background: #2a5db0;
+
+color: white;
+
+border: none;
+
+padding: 12px 25px;
+
+font-size: 16px;
+
+border-radius: 6px;
+
+cursor: pointer;
+
+}
+
+button:hover {
+
+background: #1e4a94;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="navbar">
+
+<div class="logo">
+
+📘 KCP-QA
+
+</div>
+
+<div class="menu">
+
+<a href="/dashboard">Dashboard</a>
+
+<a href="/summary_page">Summary</a>
+
+<a href="/qa_page">Ask Question</a>
+
+</div>
+
+</div>
+
+
+<div class="upload-box">
+
+<h2>Upload PDF Document</h2>
+
+<br>
+
+<form action="/upload"
+
+method="post"
+
+enctype="multipart/form-data">
+
+<input type="file"
+
+name="file"
+
+required>
+
+<br><br>
+
+<button>
+
+Upload & Generate Summary
+
+</button>
+
+</form>
+
+
+<br>
+
+<a href="/dashboard">
+
+← Back to Dashboard
+
+</a>
+
+</div>
+
+
+</body>
+</html>
